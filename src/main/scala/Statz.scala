@@ -5,9 +5,26 @@ import scala.io.Source
  */
 object Statz {
 
+  class Summer {
+    var result = 0.0;
+
+    def add(x: Double): Double = {
+      this.result = this.result + x;
+      this.result
+    }
+
+    def apply (x: Int) = add(x)
+    def apply (x: Double) = add(x)
+
+  }
+
   def main(args: Array[String]) {
-    for(line <- Source.fromFile("/data/fileA.txt").getLines())
-      println(line)
+
+    val s = new Summer()
+    for(line <- Source.fromFile("/data/fileA.txt").getLines()){
+      s.add(line.toDouble)
+    }
+    println(s.result)
   }
 
 }

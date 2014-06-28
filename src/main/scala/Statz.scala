@@ -18,6 +18,18 @@ object Statz {
 
   }
 
+  class Average {
+    var result = 0.0;
+
+    def add(x: Double): Double = {
+      this.result = this.result + x;
+      this.result
+    }
+
+    def apply (x: Double) = add(x)
+
+  }
+
   def main(args: Array[String]) {
 
     val s = new Summer()
